@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reserva tu cita | Clínica Armonía</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Clínica Armonía, inicio"
+        >Clínica Armonía</a
+      >
+    </header>
+
+    <main>
+      <section class="appointment-card" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">Atención cercana y profesional</p>
+          <h1 id="page-title">Reserva tu cita</h1>
+          <p class="lead">
+            Completa tus datos y elige el día que mejor te convenga.
+          </p>
+          <img
+            class="health-professional"
+            src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+            alt="Estetoscopio sobre una mesa blanca"
+          />
+        </div>
+
+        <div class="form-area">
+          <!-- Este contenedor se actualiza para anunciar errores o la confirmación. -->
+          <div
+            id="form-status"
+            class="form-status"
+            aria-live="polite"
+            aria-atomic="true"
+            tabindex="-1"
+          ></div>
+
+          <!-- Los label usan for para asociarse explícitamente con el id de cada control. -->
+          <form id="appointment-form" novalidate>
+            <p class="required-note">
+              <span aria-hidden="true">*</span> Indica un campo obligatorio.
+            </p>
+
+            <div class="field-group">
+              <label for="full-name"
+                >Nombre completo <span aria-hidden="true">*</span
+                ><span class="visually-hidden"> (obligatorio)</span></label
+              >
+              <input
+                id="full-name"
+                name="full-name"
+                type="text"
+                autocomplete="name"
+                required
+                aria-describedby="full-name-error"
+              />
+              <p id="full-name-error" class="field-error"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="email"
+                >Correo electrónico <span aria-hidden="true">*</span
+                ><span class="visually-hidden"> (obligatorio)</span></label
+              >
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                aria-describedby="email-error"
+              />
+              <p id="email-error" class="field-error"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="appointment-date"
+                >Fecha de la cita <span aria-hidden="true">*</span
+                ><span class="visually-hidden"> (obligatorio)</span></label
+              >
+              <input
+                id="appointment-date"
+                name="appointment-date"
+                type="date"
+                required
+                aria-describedby="appointment-date-help appointment-date-error"
+              />
+              <p id="appointment-date-help" class="field-help">
+                Selecciona hoy o una fecha posterior.
+              </p>
+              <p id="appointment-date-error" class="field-error"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="reason"
+                >Motivo de la consulta <span aria-hidden="true">*</span
+                ><span class="visually-hidden"> (obligatorio)</span></label
+              >
+              <select
+                id="reason"
+                name="reason"
+                required
+                aria-describedby="reason-error"
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="Consulta general">Consulta general</option>
+                <option value="Seguimiento">Seguimiento</option>
+                <option value="Otra consulta">Otra consulta</option>
+              </select>
+              <p id="reason-error" class="field-error"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="comments"
+                >Comentarios <span class="optional">(opcional)</span></label
+              >
+              <textarea
+                id="comments"
+                name="comments"
+                rows="3"
+                aria-describedby="comments-help"
+              ></textarea>
+              <p id="comments-help" class="field-help">
+                Puedes compartir algún detalle que ayude a preparar tu consulta.
+              </p>
+            </div>
+
+            <button class="submit-button" type="submit">
+              Confirmar reserva
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
