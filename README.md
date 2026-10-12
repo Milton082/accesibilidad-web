@@ -25,28 +25,73 @@ La página incorpora etiquetas visibles, foco distinguible, contraste adecuado, 
 
 ## Ejemplos importantes
 
-Una etiqueta se vincula con el campo mediante `for` e `id`, permitiendo que el lector de pantalla identifique el propósito del control:
+### Botón nativo
+
+Un `div` puede parecer un botón, pero no ofrece la función ni el acceso por teclado de forma automática:
+
+```html
+<!-- Incorrecto: es solo un contenedor visual. -->
+<div class="submit-button">Confirmar reserva</div>
+
+<!-- Correcto: funciona con teclado y lector de pantalla. -->
+<button class="submit-button" type="submit">Confirmar reserva</button>
+```
+
+### Etiqueta y campo de formulario
+
+La etiqueta se vincula con el campo mediante `for` e `id`, para comunicar qué dato se debe ingresar:
 
 ```html
 <label for="email">Correo electrónico</label>
 <input id="email" name="email" type="email" required />
 ```
 
-El foco visible facilita saber qué elemento se está usando al navegar con Tab:
+### Texto alternativo en una imagen
+
+El atributo `alt` describe la imagen para las personas que usan un lector de pantalla:
+
+```html
+<img
+  class="health-professional"
+  src="https://images.unsplash.com/..."
+  alt="Profesional de salud con bata blanca en un consultorio"
+/>
+```
+
+### Foco visible y navegación con teclado
+
+Al navegar con Tab, el foco visible permite identificar el control seleccionado:
 
 ```css
 input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
 button:focus-visible {
   outline: 3px solid #f29d38;
   outline-offset: 3px;
 }
 ```
 
-Los cambios de validación y confirmación se comunican a tecnologías de asistencia:
+### Mensajes de estado y validación
+
+Los mensajes nuevos se anuncian a tecnologías de asistencia cuando hay un error o una confirmación:
 
 ```html
 <div id="form-status" aria-live="polite" aria-atomic="true"></div>
 ```
+
+También se relaciona cada campo con sus instrucciones y errores:
+
+```html
+<input
+  id="appointment-date"
+  type="date"
+  required
+  aria-describedby="appointment-date-help appointment-date-error"
+/>
+```
+
+La página usa validación nativa y JavaScript para impedir fechas pasadas y explicar el error con texto, no solamente con color. Estas prácticas deben comprobarse con teclado, lectores de pantalla y, cuando sea posible, con personas usuarias reales.
 
 ---
 
