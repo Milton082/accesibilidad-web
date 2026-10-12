@@ -92,11 +92,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  showStatus(
-    "Reserva registrada como demostración. Tus datos no se envían a una clínica real.",
-    "success",
-    true,
-  );
+  showStatus("¡Reserva registrada con exito!", "success", true);
   form.reset();
   setDateLimit();
 });
